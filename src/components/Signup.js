@@ -6,15 +6,15 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
-import Link from "@mui/material/Link";
+
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import background from "../Images/1.jpg";
+import logo from "../Images/vector/default-monochrome.svg";
 
 const theme = createTheme();
 
@@ -66,7 +66,7 @@ const Signup = (props) => {
             sm={4}
             md={7}
             sx={{
-              backgroundImage: "url(https://source.unsplash.com/random)",
+              backgroundImage: `url(${background})`,
               backgroundRepeat: "repeat",
               backgroundColor: (t) =>
                 t.palette.mode === "light"
@@ -94,6 +94,7 @@ const Signup = (props) => {
                 alignItems: "center",
               }}
             >
+              <img src={logo} alt="logo"></img>
               <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
                 <LockOutlinedIcon />
               </Avatar>
@@ -140,10 +141,6 @@ const Signup = (props) => {
                   onChange={onChange}
                 />
 
-                <FormControlLabel
-                  control={<Checkbox value="remember" color="primary" />}
-                  label="Remember me"
-                />
                 <Button
                   type="submit"
                   fullWidth

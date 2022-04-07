@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useLocation, useHistory } from "react-router-dom";
+import Logo from "../Images/vector/isolated-layout.svg";
 
 const Navbar = (props) => {
   let history = useHistory();
@@ -17,6 +18,13 @@ const Navbar = (props) => {
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">
+            <img
+              src={Logo}
+              alt="MY"
+              width="30"
+              height="24"
+              className="d-inline-block align-text-top"
+            />
             My Companion
           </Link>
           <button
@@ -54,28 +62,54 @@ const Navbar = (props) => {
                 </Link>
               </li>
             </ul>
-            {!localStorage.getItem("token") ? (
-              <form className="d-flex">
-                <Link
-                  className="btn btn-primary mx-2"
-                  to="/login"
-                  role="button"
-                >
-                  Login
-                </Link>
-                <Link className="btn btn-primary" to="/signup" role="button">
-                  SignUp
-                </Link>
-              </form>
-            ) : (
+            {localStorage.getItem("token") ? (
               <>
-                <Link className="btn btn-primary mx-2" to="/profile">
-                  Profile <i class="far fa-user-circle"></i>
-                </Link>
-                <button className="btn btn-primary" onClick={handleLogout}>
-                  Logout
-                </button>
+                <li className="nav-item dropdown  d-flex mx-4 ">
+                  <Link
+                    className=" dropdown-toggle"
+                    To="/"
+                    id="navbarDarkDropdownMenuLink"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    <i className="far fa-user-circle"></i>
+                  </Link>
+                  <ul
+                    className="dropdown-menu dropdown-menu-end"
+                    aria-labelledby="navbarDarkDropdownMenuLink"
+                  >
+                    <li>
+                      <Link className="dropdown-item" To="#">
+                        How You doin'?
+                      </Link>
+                    </li>
+                    <li>
+                      <Link className="dropdown-item" To="#">
+                        Change Password
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        className="dropdown-item"
+                        To="/"
+                        onClick={handleLogout}
+                      >
+                        Logout
+                      </Link>
+                    </li>
+                  </ul>
+                </li>
               </>
+            ) : (
+              <Link
+                className={`text-decoration-none mx-2 nav-link ${
+                  location.pathname === "/Login " ? "active" : ""
+                }`}
+                to="/Login"
+              >
+                Login
+              </Link>
             )}
           </div>
         </div>

@@ -66,22 +66,24 @@
 }
 
 #note {
-  background-image: linear-gradient(
-      90deg,
-      transparent 0%,
-      transparent 10%,
-      #db676c 10%,
-      #db676c calc(10% + 2px),
-      transparent calc(10% + 2px),
-      transparent 100%
-    ),
+  background-image: 
     linear-gradient(180deg, white 12%, transparent 12%),
     repeating-linear-gradient(
       180deg,
       #d7d7d9 0px,
       #d7d7d9 1px,
       transparent 1px,
-      transparent 30px
+      transparent 24px
     ),
     linear-gradient(white, white);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  
+  background-image: linear-gradient(45deg ,#288642 ,#27FDFD );
+  border-radius: 6px;
 }
